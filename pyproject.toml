@@ -1,0 +1,13 @@
+[project]
+name = "midi-macros"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mido>=1.3.3",
+    "pyautogui>=0.9.54",
+    "pyqt6>=6.9.1",
+    "python-rtmidi>=1.5.8",
+    "ruff>=0.12.3",
+]
