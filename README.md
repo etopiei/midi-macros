@@ -6,6 +6,10 @@ I found a couple of apps that do something similar, but they all seemed to be pa
 
 This is also an experiment with AI coding, as this app was completely written by Claude Code.
 
+## Screenshot
+
+![demo](demo.png)
+
 ## Features
 
 - **Send Keys**: Execute keyboard shortcuts (Ctrl+C, Alt+Tab, etc.)
