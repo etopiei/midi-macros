@@ -6,6 +6,8 @@ I found a couple of apps that do something similar, but they all seemed to be pa
 
 This is also an experiment with AI coding, as this app was completely written by Claude Code.
 
+If you're curious about the prompts I used, they are included in the [prompts.txt](prompts.txt) file.
+
 ## Screenshot
 
 ![demo](demo.png)
