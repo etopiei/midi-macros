@@ -1,4 +1,13 @@
-#!/usr/bin/env python3
+#!/usr/bin/env uv run
+# /// script
+# requires-python = ">=3.12"
+# dependencies = [
+#     "PyQt6",
+#     "mido",
+#     "python-rtmidi",
+#     "pyautogui",
+# ]
+# ///
 
 import sys
 import threading
