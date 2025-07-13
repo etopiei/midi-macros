@@ -1,0 +1,34 @@
+MIDI Macros Development - User Prompts
+===========================================
+
+1. Create a scaffold of a single window GUI app with python, the app should be a single 'main.py' file. Use uv for package management and ruff for formatting code. The app is called 'Midi Macros'. Once the scaffold is created I will give you more instructions of what to populate the UI with and what functionality the app needs.
+
+2. The project doesn't run. It looks like the installed python is not configured with tkinter. Re-write main.py to use a different GUI library and update the dependencies of the project.
+
+3. Now that the application shell exists, update it to use the 'mido' library to listen for MIDI messages and display the key data associated with the messages in the UI.
+
+4. There was an error scanning midi ports, "there is no module rtmidi", make sure to include this in the app as well.
+
+5. That worked quite well! Now let's remove the raw log from the application, and the display of the messages received. Instead add a plus button to the interface that allows the user to press a new key on the midi keyboard and associate that with an action. For now the list of actions can just be hardcoded dummy data, but eventually this will be things like 'Send key presses'. The actions should be remembered after the user closes the app, so save these to a file and load them in when the app starts. Also we shouldn't register clock events from the midi device, so don't emit those messages at all.
+
+6. This is great! Some small changes to make to the UI. Remove the 'Channel' column from the macros table. Also the 'MIDI Input' column should allow re-naming. Also when a macro trigger happens again once it's in the table, it should light up in the table.
+
+7. That looks good! By default, this should run in 'test_mode' so the actions aren't triggered. Let's add a toggle in the UI to switch between 'test mode' and 'live mode' and also let's show the connection status up the top in red or green so the user knows if their midi device is connected.
+
+8. Now we are ready to add the user actions for real. The first action we support should be 'Send Keys' which will use PyAutoGUI to act as a keyboard and send the keys the user specifies. There should be an edit button in a column next to the action in the table that opens a pop-up which let's the user specify the keys to send.
+
+9. This is great! However I notice when I trigger a macro it executes twice, can we add some debouncing to the event triggering? Also sometimes the app becomes unresponsive (particularly after disconnecting) is there an issue with the port listening code that is causing the main UI thread to block?
+
+10. Undo the last set of changes. None of that worked.
+
+11. Let's try again. This time do the debouncing only in the execute_macro function. i.e. if an execution of the same trigger occurred within the last 500ms, don't execute.
+
+12. This is great! Now remove all actions except 'Send Keys' and add a new action called 'Write text' which will use pyautogui to send a string of text as if sent via a keyboard. Also add a small pen icon in the 'MIDI Input' column to indicate that you can rename triggers.
+
+13. Add back the 'raw log' at the bottom of the app so I can debug what messages are being recieved and acted on by the app.
+
+14. Looking at the debug log I think I see what the issue is. What I'd like to do to fix this issue is only emit messages that have velocity '0'. Also remove the debug log from the UI, but instead write the same data to a file next to the configuration file, if the program is started with an environment variable DEBUG=true
+
+15. Make it runnable from a single file using uv script dependencies. And edit the README to include instructions on how to run as an executable.
+
+16. What are all the prompts I have given? Please write these to a text file called 'prompts.txt'
